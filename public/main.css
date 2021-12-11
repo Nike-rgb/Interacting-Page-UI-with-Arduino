@@ -1,0 +1,56 @@
+@import url("./Roboto-Black.ttf");
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 60px;
+  background-image: url("./images/background_image.jpg");
+  background-color: rgb(130 70 145 / 42%);
+  background-blend-mode: multiply;
+  background-size: cover;
+}
+
+#speak {
+  color: white;
+  font-size: 35px;
+  width: 60%;
+}
+
+.slider_wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 250px;
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  justify-items: center;
+  gap: 30px;
+}
+
+.slider_wrapper i {
+  font-size: 30px;
+  color: #fbfbff;
+}
+
+footer {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: white;
+}
+
+footer a {
+  color: black;
+}
