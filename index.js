@@ -13,23 +13,39 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
+  app.set("mode", "main");
   res.render("index");
 });
 
-const Brightness = require("brightness");
-const sendBrightness = (socket) => {
-  Brightness.get().then((value) => {
-    socket.emit("getBrightness", value);
-  });
-};
-const setBrightness = (value, socket) => {
-  Brightness.set(value).then(() => {
-    sendBrightness(socket);
-  });
-};
+app.get("/game", (req, res) => {
+  app.set("mode", "game");
+  res.render("game");
+});
 
+const { sendBrightness, setBrightness } = require("./libs/brightnessControl");
 const { Server } = require("socket.io");
 const io = new Server(server);
 io.on("connection", (socket) => {
+  app.set("clientSocket", socket);
   setInterval(() => sendBrightness(socket), 500);
+});
+
+const five = require("johnny-five");
+const board = new five.Board();
+board.on("ready", () => {
+  const sensor = new five.Sensor({
+    pin: "A0",
+    freq: 250,
+    threshold: 1,
+  });
+  sensor.on("change", () => {
+    const mode = app.get("mode");
+    const socket = app.get("clientSocket");
+    if (!socket) return;
+    let value = sensor.fscaleTo(0, 1);
+    if (mode === "main") setBrightness(value, socket);
+    else socket.emit("sensorChange", value);
+    console.log(sensor.value);
+    console.log(mode);
+  });
 });

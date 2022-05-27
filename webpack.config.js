@@ -1,10 +1,13 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./resources/js/main.js",
+  entry: {
+    main: "./resources/js/main.js",
+    game: "./resources/js/game.js",
+  },
   mode: "development",
   output: {
-    filename: "main.bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "public"),
   },
   module: {

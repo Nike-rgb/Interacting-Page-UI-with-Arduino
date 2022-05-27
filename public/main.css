@@ -3,34 +3,47 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  user-select: none;
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
-body {
-  margin: 0;
+.container,
+.night-container {
+  width: 98%;
+  height: 100%;
+  margin: auto;
   padding: 60px;
+  background-color: rgb(12 12 12 / 75%);
   background-image: url("./images/background_image.jpg");
-  background-color: rgb(130 70 145 / 42%);
   background-blend-mode: multiply;
   background-size: cover;
+}
+
+.night-container {
+  background-image: url("./images/nightsky.jpg");
+  position: absolute;
+  left: 1%;
+  opacity: 0;
 }
 
 #speak {
   color: white;
   font-size: 35px;
-  width: 60%;
+  width: 40%;
+  position: absolute;
+  bottom: 160px;
+  right: 100px;
 }
 
+/* Slider CSS */
 .slider_wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%);
+  margin: auto;
   width: 50%;
   height: 250px;
   display: grid;
@@ -38,19 +51,40 @@ body {
   justify-items: center;
   gap: 30px;
 }
-
 .slider_wrapper i {
   font-size: 30px;
   color: #fbfbff;
 }
-
+.github_img {
+  width: 70px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  animation: grow 5s ease infinite;
+}
+.sun_moon {
+  width: 120px;
+  position: absolute;
+  left: 50px;
+  top: 20px;
+}
+#moon {
+  left: 80%;
+}
 footer {
   position: absolute;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
   color: white;
+  width: 90%;
 }
-
 footer a {
   color: black;
+  font-weight: bold;
+}
+
+@keyframes grow {
+  50% {
+    transform: scale(1.2);
+  }
 }

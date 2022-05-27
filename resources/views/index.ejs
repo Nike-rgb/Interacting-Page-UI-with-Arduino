@@ -10,22 +10,45 @@
   </head>
   <script defer src="/main.bundle.js"></script>
   <body>
-    <h1 id="speak"></h1>
-    <div class="slider_wrapper">
-      <div class="slider" disabled id="brightness_range"></div>
-      <i class="fas fa-adjust"></i>
+    <div class="night-container"></div>
+    <div class="container">
+      <!-- Brightness Control HTML-->
+      <img class="sun_moon" id="sun" src="/images/sun.png" alt="sun" />
+      <img class="sun_moon" id="moon" src="/images/moon.png" alt="mooon" />
+      <h1 id="speak"></h1>
+      <div class="slider_wrapper">
+        <div class="slider" disabled id="brightness_range"></div>
+        <i class="fas fa-adjust"></i>
+      </div>
+      <a
+        href="/game"
+        style="
+          color: white;
+          font-size: 18px;
+          position: absolute;
+          bottom: 130px;
+          right: 20px;
+        "
+        >Click Here for a fun little game!</a
+      >
+      <footer>
+        <a href="https://github.com/Nike-rgb/Interacting-Page-UI-with-Arduino"
+          ><img
+            class="github_img"
+            src="/images/github_logo.png"
+            alt="github_link"
+        /></a>
+        Background Photo by
+        <a
+          href="https://unsplash.com/@sahandbabali?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          >Sahand Babali</a
+        >
+        on
+        <a
+          href="https://unsplash.com/s/photos/electronics?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          >Unsplash</a
+        >
+      </footer>
     </div>
-    <footer>
-      Background Photo by
-      <a
-        href="https://unsplash.com/@sahandbabali?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >Sahand Babali</a
-      >
-      on
-      <a
-        href="https://unsplash.com/s/photos/electronics?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >Unsplash</a
-      >
-    </footer>
   </body>
 </html>
